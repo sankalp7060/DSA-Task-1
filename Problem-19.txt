@@ -1,0 +1,18 @@
+class Solution {
+    public int maxProduct(int[] a) {
+        if(a.length==1){
+            return a[0];
+        }
+        int m=Integer.MIN_VALUE;
+        for(int i=0;i<a.length;i++){
+            int p=1;
+            for(int j=i;j<a.length;j++){
+                p*=a[j];
+                if(p>m){
+                    m=p;
+                }
+            }
+        }
+        return m;
+    }
+}

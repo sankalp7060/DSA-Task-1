@@ -1,0 +1,23 @@
+class Solution {
+    public int findMaxLength(int[] a) {
+        Map<Integer,Integer> map=new HashMap<>();
+        int m=0,c=0;
+        for(int i=0;i<a.length;i++){
+            if(a[i]==1){
+                c+=1;
+            }
+            else{
+                c+=-1;
+            }
+            if(c==0){
+                m=i+1;
+            }
+            if(!map.containsKey(c)){
+                map.put(c,i);
+            }
+            m=Math.max(m,i-map.get(c));
+        }
+        System.out.print(map);
+        return m;
+    }
+}

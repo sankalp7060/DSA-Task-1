@@ -1,0 +1,20 @@
+class Solution {
+    public int subarraySum(int[] a, int k) {
+        Map<Integer,Integer> m=new HashMap<>();
+        int c=0,s=0;
+        m.put(0,1);
+        for(int i=0;i<a.length;i++){
+            s+=a[i];
+            if(m.containsKey(s-k)){
+                c+=m.get(s-k);
+            }
+            if(m.containsKey(s)){
+                m.put(s,m.get(s)+1);
+            }
+            else{
+                m.put(s,1);
+            }
+        }
+        return c;
+    }
+}
